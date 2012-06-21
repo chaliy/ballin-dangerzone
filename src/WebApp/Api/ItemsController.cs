@@ -3,18 +3,19 @@ using System.Web.Http;
 
 namespace WebApp.Api
 {
-
-   
-    
+      
     public class ItemsController : ApiController
     {
         // GET api/<controller>
-        public IEnumerable<Item> Get()
+        public ItemsModel Get()
         {
-            return new []
+            return new ItemsModel
             {
-                new Item { Subject = "Foo#1", Body = "Foo#1"},
-                new Item { Subject = "Foo#2", Body = "Foo#2"}
+                Items = new List<Item>
+                {
+                    new MailItem { Folder = "mail.copmany", Subject = "Foo#1", Body = "Foo#1" },
+                    new MailItem { Folder = "mail.copmany", Subject = "Foo#2", Body = "Foo#2"}
+                }
             };
         }
 

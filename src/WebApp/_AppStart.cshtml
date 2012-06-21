@@ -1,5 +1,7 @@
 ﻿@using System.Web.Http
+@using System.Web.Optimization
 @using System.Web.Routing
+@using UnderscoreBundler
 @{
     RouteTable.Routes.MapHttpRoute(
         name: "DefaultApi",
@@ -7,4 +9,17 @@
         defaults: new { id = System.Web.Http.RouteParameter.Optional }
         );
 
+
+    var homeTemplates = new Bundle("~/client/hometemplates")
+        .Include("~/client/home/main.html");
+    homeTemplates.Transforms.Add(new JsMinify());
+    homeTemplates.Builder = new CompiledUndrescoreTemplatesBundler();
+    BundleTable.Bundles.Add(homeTemplates);
+
+    var homeJs = new Bundle("~/client/homejs")
+        .Include("~/client/base.js")
+        .Include("~/client/home/home.js")
+        .Include("~/client/home/app.js");
+    homeJs.Transforms.Add(new JsMinify());
+    BundleTable.Bundles.Add(homeJs);
 }
