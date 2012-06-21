@@ -20,8 +20,11 @@
         initialize: function () {
             _.bindAll(this);
             //var self = this;
-            //this.model.bind("change", this.render);
+            this.model.bind("change", this._updateView);
             //this.$el = $(this.el);
+        },
+        _updateView: function(){
+
         },
         render: function () {
             var self = this;
