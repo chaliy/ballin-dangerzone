@@ -96,6 +96,9 @@
   <ItemGroup>
     <Content Include="Client\base.js" />
     <Content Include="Client\Home\app.js" />
+    <Content Include="Client\Home\contactItem.html" />
+    <Content Include="Client\Home\createContactDialog.html" />
+    <Content Include="Client\Home\mailItem.html" />
     <Content Include="Client\Home\main.html" />
     <Content Include="Client\Home\home.js" />
     <Content Include="Content\bootstrap-responsive.css" />
@@ -133,6 +136,9 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\jquery.wysiwyg.bg.png" />
+    <Content Include="Content\themes\base\jquery.wysiwyg.css" />
+    <Content Include="Content\themes\base\jquery.wysiwyg.gif" />
     <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -206,11 +212,17 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js">
       <DependentUpon>jquery.validate.unobtrusive.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\jquery.wysiwyg.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Scripts\underscore.js" />
     <Content Include="Scripts\underscore.min.js">
       <DependentUpon>underscore.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\wysiwyg-controls\wysiwyg.colorpicker.js" />
+    <Content Include="Scripts\wysiwyg-controls\wysiwyg.cssWrap.js" />
+    <Content Include="Scripts\wysiwyg-controls\wysiwyg.image.js" />
+    <Content Include="Scripts\wysiwyg-controls\wysiwyg.link.js" />
+    <Content Include="Scripts\wysiwyg-controls\wysiwyg.table.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
   </ItemGroup>

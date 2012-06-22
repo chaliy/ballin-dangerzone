@@ -10,7 +10,17 @@ namespace WebApp.Api
     public class MailItem : Item
     {
         public string Subject { get; set; }
+        public string From { get; set; }
         public string Body { get; set; }
+    }
+
+    public class ContactItem : Item
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string PhotoUrl { get; set; }
     }
 
     public class ItemsModel
