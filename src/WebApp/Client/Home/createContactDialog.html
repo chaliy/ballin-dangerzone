@@ -1,27 +1,45 @@
 ﻿<div class="modal hide">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">×</button>
-    <h3>Create new mail message</h3>
+    <h3>Create new contact</h3>
   </div>
     <div class="modal-body">
                     
         <form>
             <fieldset>
-                <legend class="hide">Compose message</legend>
+                <legend class="hide">Add contact details</legend>
                 <div class="control-group">
+                    <label class="control-label" for="firstName">Fist name:</label>
                     <div class="controls">
-                        <input type="text" class="input-xlarge" id="subject" placeholder="Enter subject of the message">
+                        <input type="text" class="input-xlarge" id="firstName" placeholder="Enter first name of the contact">
                     </div>
                 </div>
                 <div class="control-group">
+                    <label class="control-label" for="lastName">Last name:</label>
                     <div class="controls">
-                        <input type="text" class="input-xlarge" id="to" placeholder="Enter email address of the recipient">
-                    </div>              
+                        <input type="text" class="input-xlarge" id="lastName" placeholder="Enter last name of the contact">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="email">Email:</label>                    
+                    <div class="controls">
+                        <div class="input-prepend">
+                            <span class="add-on">@</span><input class="input-xlarge" id="email" type="text" size="16" placeholder="Enter email of the contact">
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="phone">Phone:</label>
+                    <div class="controls">
+                        <input type="text" class="input-xlarge" id="phone" placeholder="Enter telephone number of the contact">
+                    </div>
                 </div>                
                 <div class="control-group">
+                    <label class="control-label" for="photo">Photo:</label>
                     <div class="controls">
-                        <textarea id="message" style="width:98%"></textarea>
-                    </div>              
+                        <input type="text" class="input-xlarge" id="photo" placeholder="Enter url to photo of the contact">
+                    </div>
+                    <p class="help-block">You can copy URL of the image in your browser, example of such URL is <code>http://upload.wikimedia.org/wikipedia/commons/2/2a/Bill_Gates_in_WEF_%2C2007.jpg</code>.</p>
                 </div>
             </fieldset>
         </form>
@@ -29,6 +47,6 @@
     </div>
   <div class="modal-footer">
     <a href="#" class="btn" data-dismiss="modal">Close</a>
-    <a href="#" class="btn btn-primary">Save changes</a>
+    <a id="createContact" href="#" class="btn btn-primary">Create contact</a>
   </div>
 </div>

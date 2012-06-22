@@ -32,4 +32,22 @@ namespace WebApp.Api
             Items = new List<Item>();
         }
     }
+
+    public class MailItemCandidate
+    {
+        public string Subject { get; set; }
+        public string To { get; set; }
+        public string Body { get; set; }
+        public string Folder { get; set; }
+    }
+
+    public class ContactItemCandidate
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string PhotoUrl { get; set; }
+        public string Folder { get; set; }
+    }
 }

@@ -9,7 +9,6 @@
         initialize: function (opt) {
             _.bindAll(this);
             this.fetch();
-            //this.trigger()
         },
         setCurrentFolder: function (folder) {
             this.set("folder", folder);
@@ -18,6 +17,18 @@
             var currentFolder = this.get("folder");            
             return _.filter(this.get("Items"), function (i) {
                 return i.Folder == currentFolder;
+            });
+        },
+        submitNewMessage: function (data) {
+            var self = this;
+            $.post("api/items/mail", data, function () {
+                self.fetch();
+            });
+        },
+        createNewContact: function (data) {
+            var self = this;
+            $.post("api/items/contact", data, function () {
+                self.fetch();
             });
         }
     });
@@ -53,21 +64,56 @@
             this.$(".nav a[data-folder='" + currentFolder + "']").parent().addClass("active");            
         },
         _createItem: function () {
-            var dialog = $(createContactDialogTpl());            
-            dialog.modal({
-                backdrop: false
-            });
-            dialog.find("#message").wysiwyg({
-                initialContent: "</br>",
-                controls: {
-                    createLink: { visible: false },
-                    insertImage: { visible: false },
-                    insertTable: { visible: false },
-                    insertHorizontalRule: { visible: false },
-                    html: { visible: false },
-                    code: {visible: false }
-                }
-            });
+            var self = this;
+            var currentFolder = this.model.get("folder");
+            if (currentFolder.startsWith("mail")) {
+                var mailDialog = $(createMailDialogTpl());                
+                mailDialog.modal({
+                    backdrop: false
+                });
+                // Enabled editor
+                mailDialog.find("#message").wysiwyg({
+                    initialContent: "</br>",
+                    controls: {
+                        createLink: { visible: false },
+                        insertImage: { visible: false },
+                        insertTable: { visible: false },
+                        insertHorizontalRule: { visible: false },
+                        html: { visible: false },
+                        code: { visible: false }
+                    }
+                });
+                // Wireup to create new message
+                mailDialog.find("#submitMessage").click(function () {
+                    var submitMessageData = {
+                        Subject: mailDialog.find("#subject").val(),
+                        To: mailDialog.find("#to").val(),
+                        Body: mailDialog.find("#message").val(),
+                        Folder: currentFolder
+                    };
+                    self.model.submitNewMessage(submitMessageData);
+                    mailDialog.hide();
+                });
+            } else {                
+                var contactDialog = $(createContactDialogTpl());
+                contactDialog.modal({
+                    backdrop: false
+                });                
+                // Wireup to create new message
+                contactDialog.find("#createContact").click(function () {
+                    var createContactData = {
+                        FirstName: contactDialog.find("#firstName").val(),
+                        lastName: contactDialog.find("#lastName").val(),
+                        Email: contactDialog.find("#email").val(),
+                        Phone: contactDialog.find("#phone").val(),
+                        Photo: contactDialog.find("#photo").val(),
+                        Folder: currentFolder
+                    };
+                    self.model.createNewContact(createContactData);
+                    contactDialog.hide();
+                });
+                
+            }
         },
         render: function () {
             var self = this;

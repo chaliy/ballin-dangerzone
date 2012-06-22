@@ -98,6 +98,7 @@
     <Content Include="Client\Home\app.js" />
     <Content Include="Client\Home\contactItem.html" />
     <Content Include="Client\Home\createContactDialog.html" />
+    <Content Include="Client\Home\createMailDialog.html" />
     <Content Include="Client\Home\mailItem.html" />
     <Content Include="Client\Home\main.html" />
     <Content Include="Client\Home\home.js" />
@@ -227,7 +228,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\Item.cs" />
+    <Compile Include="Api\ItemsStorage.cs" />
+    <Compile Include="Api\Model.cs" />
     <Compile Include="Api\ItemsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
