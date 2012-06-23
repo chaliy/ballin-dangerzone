@@ -61,7 +61,7 @@
             // Update current folder
             var currentFolder = this.model.get("folder");
             this.$(".nav a").parent().removeClass("active");
-            this.$(".nav a[data-folder='" + currentFolder + "']").parent().addClass("active");            
+            this.$(".nav a[href='#folder/" + currentFolder + "']").parent().addClass("active");            
         },
         _createItem: function () {
             var self = this;
@@ -119,9 +119,9 @@
             var self = this;
             this.$el.hide();
             this.$el.html(mainTpl());
-            this.$(".nav a").click(function (e) {
-                self.model.setCurrentFolder($(this).data("folder"));
-            });
+            //this.$(".nav a").click(function (e) {
+            //    self.model.setCurrentFolder($(this).data("folder"));
+            //});
             this.$el.fadeIn('fast'); 
         },
         events: {            
