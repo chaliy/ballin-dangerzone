@@ -119,9 +119,6 @@
             var self = this;
             this.$el.hide();
             this.$el.html(mainTpl());
-            //this.$(".nav a").click(function (e) {
-            //    self.model.setCurrentFolder($(this).data("folder"));
-            //});
             this.$el.fadeIn('fast'); 
         },
         events: {            
