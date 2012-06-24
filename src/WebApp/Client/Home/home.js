@@ -84,7 +84,7 @@
                     }
                 });
                 // Wireup to create new message
-                mailDialog.find("#submitMessage").click(function () {
+                mailDialog.find("#submitMessage").click(function (e) {                    
                     var submitMessageData = {
                         Subject: mailDialog.find("#subject").val(),
                         To: mailDialog.find("#to").val(),
@@ -100,7 +100,7 @@
                     backdrop: false
                 });                
                 // Wireup to create new message
-                contactDialog.find("#createContact").click(function () {
+                contactDialog.find("#createContact").click(function (e) {
                     var createContactData = {
                         FirstName: contactDialog.find("#firstName").val(),
                         lastName: contactDialog.find("#lastName").val(),

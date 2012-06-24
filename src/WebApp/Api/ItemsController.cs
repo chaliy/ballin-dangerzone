@@ -18,6 +18,7 @@ namespace WebApp.Api
         //}
 
         // POST api/items/mail/        
+        [ActionName("mail")]
         public void PostMail(MailItemCandidate candidate)
         {
             // You can find code
@@ -35,7 +36,8 @@ namespace WebApp.Api
             });
         }
 
-        // POST api/items/contact/        
+        // POST api/items/contact/                
+        [ActionName("contact")]
         public void PostContact(ContactItemCandidate candidate)
         {
             ItemsStorage.Instance.Items.Add(new ContactItem
